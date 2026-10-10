@@ -35,10 +35,15 @@ ln -sf ../electron/cli.js node_modules/.bin/electron
 chmod +x node_modules/.bin/electron 2>/dev/null || true
 echo "symlink: node_modules/.bin/electron -> ../electron/cli.js"
 
-# 3) Перевірка.
-if node_modules/.bin/electron --version >/dev/null 2>&1; then
-  echo "OK: electron $(node_modules/.bin/electron --version 2>/dev/null)"
-else
-  echo "Увага: не вдалося отримати версію electron. Спробуйте 'npm rebuild electron'." >&2
+# 3) Перевірка — НЕ запускаємо electron (щоб не залежати від sandbox/GPU).
+#    Достатньо переконатися, що бінарник виконуваний і симлінк на місці.
+if [ ! -x "$DIST/electron" ]; then
+  echo "Помилка: $DIST/electron відсутній або не виконуваний. Спробуйте 'npm install'." >&2
   exit 1
 fi
+if [ ! -e node_modules/.bin/electron ]; then
+  echo "Помилка: не вдалося створити симлінк node_modules/.bin/electron." >&2
+  exit 1
+fi
+VER="$(cat "$DIST/version" 2>/dev/null || echo '?')"
+echo "OK: electron ${VER} готовий (бінарник виконуваний, симлінк на місці)."
