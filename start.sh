@@ -19,10 +19,7 @@ if ! command -v node >/dev/null 2>&1; then
   exit 1
 fi
 
-if [ ! -d node_modules/electron ]; then
-  echo "Встановлюю залежності…"
-  npm install
-  node node_modules/electron/install.js
-fi
+# Автоматичний ремонт/встановлення Electron (права +x, симлінк .bin/electron).
+bash fix-electron.sh
 
 exec node_modules/.bin/electron . --no-sandbox "$@"
