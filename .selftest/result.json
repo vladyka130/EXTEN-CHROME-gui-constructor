@@ -1,0 +1,221 @@
+{
+  "ok": true,
+  "steps": [
+    {
+      "name": "import",
+      "data": {
+        "id": "commintify-per-tab-post-filter-mv1tn0uy",
+        "surfaces": [
+          "content:0:filter_isolation.js",
+          "content:1:content.js"
+        ],
+        "labels": 11,
+        "warnings": [
+          "content_scripts[0] у MAIN world: у попередньому перегляді всі скрипти йдуть в одному світі"
+        ]
+      }
+    },
+    {
+      "name": "ui",
+      "data": {
+        "chip": "Commintify Per-Tab Post Filter 1.3.0 · MV3",
+        "surfaces": 2,
+        "labels": 11,
+        "files": 5,
+        "log": "Конструктор готовий. Electron 44.7.0, Node 24.21.0.Проєкт відкрито. Обери поверхню та натисни «Дивитись»."
+      }
+    },
+    {
+      "name": "preview",
+      "data": {
+        "surface": "content:0:filter_isolation.js",
+        "probe": {
+          "url": "extgui://p/__gui_preview__/content%3A0%3Afilter_isolation.js.html",
+          "nodes": 48,
+          "hostFixtures": 0,
+          "hostFlag": true,
+          "text": "📡 Фільтр цієї вкладки – СЕРВЕР ЕТАЛОНКИ (FLASK) АРКУШ filtr_НІЧНА filtr_ДЕННА ПОСТ ДЛЯ ЦІЄЇ ВКЛАДКИ 🌐 Без привʼязки (уся ефірна сітка) 📡 Пост Захід · 2 📡 По",
+          "postOptions": [
+            "🌐 Без привʼязки (уся ефірна сітка)",
+            "📡 Пост Захід · 2",
+            "📡 Пост Північ · 3"
+          ],
+          "panel": true
+        }
+      }
+    },
+    {
+      "name": "pick",
+      "data": {
+        "point": {
+          "x": 146,
+          "y": 427
+        },
+        "picked": {
+          "selector": "#cmpf-title",
+          "text": "📡 Фільтр цієї вкладки",
+          "styles": 14
+        }
+      }
+    },
+    {
+      "name": "skin",
+      "data": {
+        "found": true,
+        "bg": "rgb(18, 48, 26)",
+        "radius": "18px",
+        "text": "ТЕСТОВА ПРАВКА",
+        "scope": "content"
+      }
+    },
+    {
+      "name": "geom-move",
+      "data": {
+        "start": {
+          "w": 216,
+          "h": 16
+        },
+        "op": {
+          "selector": "#cmpf-title",
+          "style": {
+            "position": "relative",
+            "left": "-48px",
+            "top": "30px"
+          }
+        }
+      }
+    },
+    {
+      "name": "geom-resize",
+      "data": {
+        "handlePoint": {
+          "x": 192,
+          "y": 471
+        },
+        "before": {
+          "w": 216,
+          "h": 16
+        },
+        "style": {
+          "position": "relative",
+          "left": "-48px",
+          "top": "30px",
+          "box-sizing": "border-box",
+          "width": "246px",
+          "height": "34px"
+        }
+      }
+    },
+    {
+      "name": "geom-leaf",
+      "data": {
+        "leaf": {
+          "tag": "LABEL",
+          "text": "Аркуш",
+          "x": 146,
+          "y": 505,
+          "top": 498,
+          "sibTop": 515,
+          "leaves": 3
+        },
+        "point": {
+          "x": 85,
+          "y": 505,
+          "top": 498,
+          "sibTop": 515
+        },
+        "events": [
+          {
+            "selector": "#cmpf-body > label.cmpf-label:nth-of-type(2)",
+            "kind": "move",
+            "style": {
+              "position": "relative",
+              "left": "0px",
+              "top": "-14px"
+            },
+            "note": "рух мишкою: label.cmpf-label"
+          }
+        ],
+        "op": {
+          "selector": "#cmpf-body > label.cmpf-label:nth-of-type(2)",
+          "style": {
+            "position": "relative",
+            "left": "0px",
+            "top": "-14px"
+          }
+        },
+        "after": {
+          "ok": true,
+          "sel": "#cmpf-body > label.cmpf-label:nth-of-type(2)",
+          "hits": 1,
+          "exact": true,
+          "top": 484,
+          "sibTop": 515
+        }
+      }
+    },
+    {
+      "name": "geom-arrows",
+      "data": {
+        "beforeKeys": {
+          "left": 0,
+          "top": -14
+        },
+        "afterDown": {
+          "left": 0,
+          "top": -11
+        },
+        "afterRight": {
+          "left": 2,
+          "top": -11
+        },
+        "afterShift": {
+          "left": 2,
+          "top": -1
+        },
+        "ops": [
+          {
+            "left": "2px",
+            "top": "-1px",
+            "note": "рух мишкою: label.cmpf-label"
+          }
+        ]
+      }
+    },
+    {
+      "name": "apply",
+      "data": {
+        "written": [
+          "gui-skin/skin.css",
+          "gui-skin/skin-data.json",
+          "gui-skin/skin-runtime.js"
+        ],
+        "pages": [],
+        "manifestPatched": true,
+        "removed": false,
+        "warnings": []
+      }
+    },
+    {
+      "name": "files",
+      "data": {
+        "content_scripts": 3,
+        "war": 2,
+        "patchedPages": []
+      }
+    },
+    {
+      "name": "strip",
+      "data": {
+        "removed": true,
+        "content_scripts": 2,
+        "hasGuiDir": false,
+        "stillPatched": []
+      }
+    },
+    {
+      "name": "logic-untouched",
+      "data": true
+    }
+  ]
+}

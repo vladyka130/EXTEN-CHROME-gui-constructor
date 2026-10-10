@@ -1,0 +1,19 @@
+#demo-panel {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  width: 240px;
+  z-index: 2147483000;
+  background: #131a24;
+  color: #e6edf7;
+  border: 1px solid #2a3b52;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .45);
+  font: 13px/1.5 system-ui, sans-serif;
+}
+.dp-head { padding: 8px 10px; background: #1d2836; border-radius: 8px 8px 0 0; font-weight: 600; }
+.dp-body { padding: 10px; display: grid; gap: 6px; }
+.dp-label { color: #91a4bf; font-size: 11px; text-transform: uppercase; }
+.dp-select { padding: 5px 6px; border-radius: 6px; border: 1px solid #2a3b52; background: #0c121b; color: inherit; }
+.dp-btn { padding: 6px 10px; border-radius: 6px; border: 1px solid #35507a; background: #1e2c40; color: #dce8fa; cursor: pointer; }
+.dp-status { color: #7f93ad; font-size: 11px; }

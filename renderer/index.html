@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<title>Конструктор GUI для розширень</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="bar">
+  <div class="brand">
+    <span class="logo">🎨</span>
+    <div>
+      <b>Конструктор GUI</b>
+      <span class="sub">для Chrome-розширень · інтерфейс без зачеплення логіки</span>
+    </div>
+  </div>
+  <div class="project-chip" id="project-chip">проєкт не відкрито</div>
+  <div class="spacer"></div>
+  <button class="btn" id="btn-import">Імпортувати</button>
+  <button class="btn" id="btn-open-list">Мої проєкти</button>
+  <button class="btn btn-primary" id="btn-apply">Застосувати до розширення</button>
+  <button class="btn" id="btn-export">Експорт</button>
+  <button class="btn" id="btn-snapshot">Знімок</button>
+</header>
+
+<main class="grid">
+  <aside class="left">
+    <nav class="tabs" id="left-tabs">
+      <button class="tab active" data-tab="surfaces">Поверхні</button>
+      <button class="tab" data-tab="labels">Мітки</button>
+      <button class="tab" data-tab="files">Файли</button>
+      <button class="tab" data-tab="mocks">Мережа</button>
+      <button class="tab" data-tab="history">Знімки</button>
+    </nav>
+
+    <section class="pane active" id="pane-surfaces">
+      <p class="hint">Кнопка «Дивитись» відкриває живий перегляд: можна клікати по елементах панелі й міняти їх. Файли розширення при цьому не редагуються.</p>
+      <div id="surfaces-list"></div>
+      <div id="scan-warnings" class="warnings"></div>
+    </section>
+
+    <section class="pane" id="pane-labels">
+      <input class="search" id="labels-search" placeholder="пошук підпису…">
+      <div class="hint" id="labels-count"></div>
+      <div id="labels-list"></div>
+    </section>
+
+    <section class="pane" id="pane-files">
+      <div class="hint">«Сирі» правки файлів інтерфейсу. Логіку (JS-код) краще не чіпати — для текстів є вкладка «Мітки». Перед збереженням робиться знімок.</div>
+      <select class="select" id="file-picker"></select>
+      <div class="row">
+        <button class="btn tiny" id="btn-save-file">Зберегти</button>
+        <button class="btn tiny" id="btn-diff-file">Порівняти з оригіналом</button>
+        <button class="btn tiny" id="btn-history-file">Історія</button>
+        <button class="btn tiny danger" id="btn-revert-file">Повернути оригінал</button>
+      </div>
+      <textarea class="code" id="file-editor" spellcheck="false"></textarea>
+      <pre class="diff" id="file-diff" hidden></pre>
+    </section>
+
+    <section class="pane" id="pane-mocks">
+      <div class="hint">Щоб панель наповнилась даними в перегляді, тут описують відповіді. Для <b>запиту до сервера</b> JSON — це тіло HTTP-відповіді; для <b>повідомлення фоновіку</b> — рівно те, що розширення отримає у колбек sendMessage (напр. {"ok":true,"data":{…}}). Без моків панель показує свій стан «сервер недоступний» — це теж корисно для оформлення.</div>
+      <div id="mock-list"></div>
+      <div class="row">
+        <select class="select" id="mock-kind"><option value="net">запит до сервера (URL)</option><option value="message">повідомлення фоновіку (type)</option></select>
+        <input class="input" id="mock-match" placeholder="напр. /api/lan_freq_etalon_full">
+      </div>
+      <textarea class="code small" id="mock-body" spellcheck="false" placeholder='{"ok":true,"status":200,"data":{"posts":{"Пост 1":{"standard_freqs":["14150.0","14200.5"]}}}}'></textarea>
+      <div class="row">
+        <button class="btn tiny" id="btn-mock-add">Додати мок</button>
+        <label class="check"><input type="checkbox" id="mock-regex"> регулярний вираз</label>
+      </div>
+    </section>
+
+    <section class="pane" id="pane-history">
+      <div class="hint">Знімки робочої копії. Відкат не чіпає оригінал, з якого все починалось.</div>
+      <div id="snapshot-list"></div>
+      <div class="row"><button class="btn tiny" id="btn-strip-skin">Зняти скін-шар з файлів</button></div>
+    </section>
+  </aside>
+
+  <section class="center">
+    <div class="stage-bar">
+      <button class="btn tiny" id="btn-pick" title="Клікни по елементу в превʼю, щоб додати правку">🎯 Вибір елемента</button>
+      <button class="btn tiny" id="btn-geom" title="Перетягуй елементи мишкою, тягни за квадратні ручки — розмір. Стрілки — крок 1 px, Shift+стрілки — 10 px. Tab — батьківський елемент, Esc — вийти">📐 Рух і розмір</button>
+      <button class="btn tiny" id="btn-reload">🔁 Оновити</button>
+      <label class="check"><input type="checkbox" id="chk-enabled" checked> скін увімкнено</label>
+      <div class="spacer"></div>
+      <select class="select tiny" id="preview-width">
+        <option value="0">вся ширина</option>
+        <option value="360">360 px (popup)</option>
+        <option value="480">480 px</option>
+        <option value="800">800 px</option>
+      </select>
+      <input class="input tiny" id="live-url" placeholder="або URL реальної сторінки…">
+      <button class="btn tiny" id="btn-live">Жива сторінка</button>
+    </div>
+    <div id="preview-stage" class="stage">
+      <div class="stage-empty" id="stage-empty">Обери поверхню зліва та натисни «Дивитись».</div>
+    </div>
+    <div class="log" id="log"></div>
+  </section>
+
+  <aside class="right">
+    <div class="insp-head">
+      <b>Інспектор</b>
+      <span class="hint" id="picked-desc">елемент не вибрано</span>
+    </div>
+    <div class="insp-body" id="insp-body">
+      <div class="hint">Спочатку вибери елемент у попередньому перегляді, або додай правку вручну за підписом із вкладки «Мітки».</div>
+    </div>
+    <div class="insp-head">
+      <b>Правки цього проєкту</b>
+      <span class="count" id="ops-count">0</span>
+    </div>
+    <div class="ops-list" id="ops-list"></div>
+    <details class="extra">
+      <summary>Додатковий CSS поверхнями</summary>
+      <textarea class="code small" id="extra-css" spellcheck="false" placeholder=":root[data-gui-scope=&quot;...&quot;] .panel { ... }"></textarea>
+      <button class="btn tiny" id="btn-extra-css">Зберегти CSS</button>
+    </details>
+  </aside>
+</main>
+<script src="app.js"></script>
+</body>
+</html>

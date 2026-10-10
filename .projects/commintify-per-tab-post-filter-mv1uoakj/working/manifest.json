@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "Commintify Per-Tab Post Filter",
+  "version": "1.3.0",
+  "description": "Один пост на вкладку: фільтр частот привʼязується до конкретної вкладки й не конфліктує з іншими вкладками в межах однієї сесії",
+  "permissions": [],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "host_permissions": [
+    "https://commintify.strybo.mil.gov.ua/*",
+    "http://*/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://commintify.strybo.mil.gov.ua/app/*"
+      ],
+      "js": ["filter_isolation.js"],
+      "world": "MAIN",
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://commintify.strybo.mil.gov.ua/app/records*"
+      ],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["styles.css"],
+      "matches": ["https://commintify.strybo.mil.gov.ua/*"]
+    }
+  ]
+}

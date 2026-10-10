@@ -1,0 +1,77 @@
+{
+  "schema": "extgui-skin/v1",
+  "enabled": true,
+  "updatedAt": "2026-10-10T03:51:45.019Z",
+  "ops": [
+    {
+      "id": "geo-mv1uqwjy-mmo",
+      "surface": "content:0:filter_isolation.js",
+      "note": "рух мишкою: label.cmpf-label",
+      "enabled": true,
+      "anchor": {
+        "selector": "#cmpf-body > label.cmpf-label:nth-of-type(2)",
+        "text": "",
+        "attr": "",
+        "match": "exact"
+      },
+      "text": null,
+      "style": {
+        "position": "relative",
+        "left": "245px",
+        "top": "-50px",
+        "box-sizing": "border-box",
+        "width": "53px",
+        "height": "14px"
+      },
+      "classes": null,
+      "attrs": null,
+      "layout": null,
+      "source": null
+    },
+    {
+      "id": "geo-mv1ur2jh-0kx",
+      "surface": "content:0:filter_isolation.js",
+      "note": "розмір мишкою: div#cmpf-panel",
+      "enabled": true,
+      "anchor": {
+        "selector": "#cmpf-panel",
+        "text": "",
+        "attr": "",
+        "match": "exact"
+      },
+      "text": null,
+      "style": {
+        "box-sizing": "border-box",
+        "width": "434px",
+        "height": "349px"
+      },
+      "classes": null,
+      "attrs": null,
+      "layout": null,
+      "source": null
+    },
+    {
+      "id": "geo-mv1ur84c-ygb",
+      "surface": "content:0:filter_isolation.js",
+      "note": "розмір мишкою: input#cmpf-host.cmpf-input",
+      "enabled": true,
+      "anchor": {
+        "selector": "#cmpf-host",
+        "text": "",
+        "attr": "",
+        "match": "exact"
+      },
+      "text": null,
+      "style": {
+        "box-sizing": "border-box",
+        "width": "232px",
+        "height": "26px"
+      },
+      "classes": null,
+      "attrs": null,
+      "layout": null,
+      "source": null
+    }
+  ],
+  "css": {}
+}

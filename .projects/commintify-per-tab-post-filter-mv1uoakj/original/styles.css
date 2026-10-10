@@ -1,0 +1,160 @@
+#cmpf-panel {
+  position: fixed;
+  left: 12px;
+  bottom: 12px;
+  z-index: 999996;
+  width: 268px;
+  box-sizing: border-box;
+  padding: 8px 10px;
+  border: 1px solid #2f3a4a;
+  border-radius: 10px;
+  background: rgba(15, 20, 28, 0.94);
+  color: #e6edf5;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.35;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.42);
+}
+
+#cmpf-panel * {
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.cmpf-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+
+.cmpf-dragging {
+  user-select: none;
+}
+
+.cmpf-dragging .cmpf-head {
+  cursor: grabbing;
+}
+
+.cmpf-title {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cmpf-min {
+  flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: 1px solid #3b4757;
+  border-radius: 6px;
+  background: #1b232f;
+  color: #cbd5e1;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.cmpf-collapsed .cmpf-body,
+.cmpf-collapsed .cmpf-label,
+.cmpf-collapsed .cmpf-row {
+  display: none;
+}
+
+.cmpf-label {
+  display: block;
+  margin: 6px 0 3px;
+  color: #8fa2b8;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.cmpf-input,
+.cmpf-select {
+  width: 100%;
+  padding: 5px 7px;
+  border: 1px solid #3b4757;
+  border-radius: 7px;
+  background: #101722;
+  color: #e6edf5;
+  font-size: 12px;
+}
+
+.cmpf-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.cmpf-row .cmpf-select {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* Лічильник частот тримає фіксовану ширину, щоб панель не «стрибала» при зміні числа. */
+.cmpf-count {
+  flex: 0 0 4em;
+  width: 4em;
+  padding: 2px 0;
+  border: 1px solid #33455c;
+  border-radius: 6px;
+  background: #14202e;
+  color: #7dd3fc;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.cmpf-btn {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 6px 8px;
+  border: 1px solid #3b4757;
+  border-radius: 7px;
+  background: #1c2635;
+  color: #e6edf5;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.cmpf-btn:hover {
+  background: #24314a;
+}
+
+.cmpf-btn-icon {
+  flex: 0 0 auto;
+  width: 34px;
+}
+
+.cmpf-status {
+  margin-top: 8px;
+  padding-top: 6px;
+  border-top: 1px solid #232c39;
+  color: #9fb0c4;
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}
+
+.cmpf-status-ok {
+  color: #4ade80;
+}
+
+.cmpf-status-bad {
+  color: #fca5a5;
+  font-weight: 600;
+}
+
+.cmpf-status a {
+  color: #7dd3fc;
+}

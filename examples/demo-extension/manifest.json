@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Demo GUI Extension",
+  "version": "1.0.0",
+  "description": "Демонстраційне розширення для перевірки Конструктора GUI: popup, сторінка налаштувань і панель на сторінці",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Демо панель"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "content.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": false
+  }
+}

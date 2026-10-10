@@ -1,0 +1,13 @@
+{
+  "name": "ext-gui-constructor",
+  "version": "0.1.0",
+  "description": "Конструктор GUI для Chrome-розширень: імпорт розширення, візуальне редагування інтерфейсу без зачеплення логіки",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron . --no-sandbox",
+    "selftest": "node scripts/selftest.js"
+  },
+  "dependencies": {
+    "electron": "^44.7.0"
+  }
+}

@@ -1,0 +1,10 @@
+body { margin: 0; width: 300px; font: 13px/1.5 system-ui, sans-serif; background: #10151d; color: #e6edf7; }
+#popup-title { font-size: 15px; margin: 0; padding: 10px 12px; background: #1b2533; }
+.field { display: block; padding: 10px 12px 0; color: #91a4bf; font-size: 11px; text-transform: uppercase; letter-spacing: .05em; }
+#quick { width: 100%; box-sizing: border-box; margin-top: 4px; padding: 6px 8px; border-radius: 6px; border: 1px solid #2b3a52; background: #0b1017; color: inherit; }
+#list { list-style: none; margin: 8px 0; padding: 0; }
+#list li { padding: 7px 12px; border-bottom: 1px solid #1b2431; }
+#list li b { color: #7fb2ff; }
+.footer { display: flex; align-items: center; gap: 8px; padding: 10px 12px; background: #161d27; }
+button { border: 1px solid #35507a; background: #1e2c40; color: #dce8fa; border-radius: 6px; padding: 5px 9px; cursor: pointer; }
+#counter { color: #7f93ad; font-size: 11px; margin-left: auto; }
